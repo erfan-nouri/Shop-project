@@ -1,0 +1,104 @@
+<section class="component-section section-top bg-gray">
+    <!--<div class="hero-img bg-overlay" data-overlay="1" style="background-image: url(assets/img/price-banner.jpg);"></div>-->
+    <div class="container">
+        <div class="row justify-content-between align-items-center mt-5 text-lg-left text-center">
+            <div class="col-md-6">
+                <!-- heading -->
+                <h3 class="">
+                    سبد خرید
+                </h3>
+            </div>
+            <div class="col-md-6">
+                <!--breadcrumb-->
+                <nav aria-label="breadcrumb" class="float-lg-right">
+                    <ol class="breadcrumb bg-white btn-pill px-5 mb-0">
+                        <li class="breadcrumb-item active" aria-current="page">سبد خرید فروشگاه</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section-gap bg-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-responsive">
+                    {{#successMsg successMsg}}
+                    {{/successMsg}}
+                    <table class="table vl-custom-table">
+                        <thead>
+                            <tr>
+                                <th>نام محصول</th>
+                                <th>قیمت</th>
+                                <th>تعداد</th>
+                                <th>مجموع</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each shopCartItem}}
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <a href="#" class="mr-4"><img class="rounded" width="100"
+                                                src="/static/uploads/thumbnails/{{this.img}}" alt=""></a>
+                                        <a href="#" class="text-dark">{{this.productTitle}}</a>
+                                    </div>
+                                </td>
+                                <td>
+                                    <strong>{{this.productPrice}} تومان</strong>
+                                </td>
+                                <td>
+                                    <strong>{{this.count}}</strong>
+                                </td>
+                                <td>
+                                    <strong>{{this.sumPrice}} تومان</strong>
+                                </td>
+                                <td>
+                                    <a href="shopcart/delete/?productId={{this.productId}}&count={{this.count}}"
+                                        class="text-decoration-none h5"><i class="vl-cross-circle"></i></a>
+                                </td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-7">
+                <h6>تخفیف کوپن</h6>
+                <p class="text-muted">لطفا کد کوپن خود را در صورت لزوم وارد کنید</p>
+                <form class="d-md-flex mt-lg-4 mt-3 mb-4">
+                    <input type="text" class="form-control mr-2 mb-2" placeholder="کد کوپن">
+                    <button type="submit" class="btn btn-pill btn-solid-dark mr-2  mb-2">اعمال کوپن</button>
+                    <button type="submit" class="btn btn-pill btn-outline  mb-2">بروز سبد</button>
+                </form>
+            </div>
+            <div class="col-md-5">
+                <div class="card p-4">
+                    <h6>مجموع سبد</h6>
+                    <hr>
+                    <div class="row mb-1">
+                        <div class="col-8 font-weight-normal">مجموع کل</div>
+                        <div class="col-4">{{shopCartItem.totalPrice}} تومان</div>
+                    </div>
+                    <div class="row mb-1">
+                        <div class="col-8 font-weight-normal">تخفیف (10%)</div>
+                        <div class="col-4"> تومان</div>
+                    </div>
+                    <div class="row mb-1">
+                        <div class="col-8 font-weight-normal">هزینه پست</div>
+                        <div class="col-4">+ 20,000 تومان</div>
+                    </div>
+                    <div class="row my-4">
+                        <div class="col-8">مجموع خرید</div>
+                        <div class="col-4"><strong>398.000 تومان</strong></div>
+                    </div>
+                    <a href="/payment/buy/?amount={{shopCartItem.totalPrice}}&itemCount={{itemCount}}"
+                        class="btn btn-pill btn-block btn-theme">ورود به درگاه پرداخت</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

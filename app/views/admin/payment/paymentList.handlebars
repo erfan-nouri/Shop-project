@@ -1,0 +1,61 @@
+<div class="content-body">
+
+    <!-- Page Headings Start -->
+    <div class="row justify-content-between align-items-center mb-10">
+
+        <!-- Page Heading Start -->
+        <div class="col-12 col-lg-auto mb-20">
+            <div class="page-heading">
+                <h3>تجارت الکترونیکی <span>/ فهرست پرداخت ها</span></h3>
+            </div>
+        </div><!-- Page Heading End -->
+
+    </div><!-- Page Headings End -->
+        {{#hasError error}}{{/hasError}}
+        {{#hasSuccess success}}{{/hasSuccess}}
+    <div class="row">
+
+        <!--Order List Start-->
+        <div class="col-12">
+            <div class="table-responsive">
+                <table class="table table-vertical-middle">
+                    <thead>
+                        <tr>
+                            <th>شناسه سفارش</th>
+                            <th>مشتری</th>
+                            <th>مبلغ</th>
+                            <th>تاریخ</th>
+                            <th>وضعیت</th>
+                            <th>نوع</th>
+                            <th>عمل</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each paymentList}}
+                        <tr>
+                            <td>{{this.id}}</td>
+                            <td>{{this.firstname}} {{this.lastname}}</td>
+                            <td>{{this.amount}} تومان</td>
+                            <td>{{this.created_at}}</td>
+                            <td>{{#status this.status}} {{/status}}</td>
+                            <td>{{#paymentType this.type}} {{/paymentType}}</td>
+                            <td class="action h4">
+                                <div class="table-action-buttons">
+                                    {{#paymentDetail this.type this.id}} {{/paymentDetail}}
+                                    <a class="edit button button-box button-xs button-info" href="#"><i
+                                            class="zmdi zmdi-edit"></i></a>
+                                    <a class="delete button button-box button-xs button-danger" href="/admin/payment/delete/?paymentId={{this.id}}"><i
+                                            class="zmdi zmdi-delete"></i></a>
+                                </div>
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!--Order List End-->
+
+    </div>
+
+</div>

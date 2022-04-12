@@ -1,0 +1,80 @@
+<section class="section-gap section-top bg-white text-center">
+        <div class="hero-img bg-overlay" data-overlay="1"
+            style="background-image: url(static/assets/img/price-banner.jpg);"></div>
+        <div class="container">
+            <div class="row justify-content-md-center align-items-center">
+                <div class="col-md-7">
+                    <!-- heading -->
+
+                    <!--breadcrumb-->
+                    <nav aria-label="breadcrumb" class="d-inline-block">
+                        <ol class="breadcrumb bg-white btn-pill px-5">
+                            <li class="breadcrumb-item"><a href="#" class="text-dark">فروشگاه لباس</a></li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+<section class="section-gap">
+    <div class="container">
+        <h4>جدیدترین محصولات</h4>
+        <br>
+        <div class="row justify-content-center">
+            {{#each products}}
+            <a href="/product/{{this.id}}/{{this.slug}}">
+                <div class="col-md-3">
+                    <div class="card border-0 mb-4 box-hover">
+                        <div class="position-relative">
+                            {{#offTitle this.off_price}} {{/offTitle}}
+                            <img class="card-img-top" src="static/uploads/thumbnails/{{this.img}}" height="50" width="50" alt="card image" />
+                        </div>
+                        <div class="card-body py-4 text-center">
+                            <h6 class="mb-2 font-size-16"><a
+                                    href="/product/{{this.id}}/{{this.slug}}">{{this.title}}</a></h6>
+                            <div class="price mb-3">
+                                {{#haveOff this.off_price this.sale_price}}
+
+                                {{/haveOff}}
+                            </div>
+                            <a href="#" class="btn btn-sm btn-pill btn-outline">افزودن به سبد خرید</a>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            {{/each}}
+            <div class="col-md-12 text-center mt-4">
+                <a href="#" class="btn btn-pill btn-theme">ادامه خواندن</a>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <h4>تخفیفات</h4>
+        <br>
+        <div class="row justify-content-center">
+            {{#each offProduct}}
+            <div class="col-md-3">
+                <div class="card border-0 mb-4 box-hover">
+                    <div class="position-relative">
+                        {{#offPersent this.off_price this.sale_price}} {{/offPersent}} <img  height="50" width="50" class="card-img-top"
+                            src="static/uploads/thumbnails/{{this.img}}" alt="card image" />
+                    </div>
+                    <div class="card-body py-4 text-center">
+                        <h6 class="mb-2 font-size-16"><a href="/product/{{this.id}}/{{this.slug}}">{{this.title}}</a>
+                        </h6>
+                        <div class="price mb-3">
+                            <del class="text-muted mr-2"><span class="font-size-14 h6">{{this.sale_price}}
+                                    تومان</span></del>
+                            <span class="h6">{{this.off_price}} تومان</span>
+                        </div>
+                        <a href="" class="btn btn-sm btn-pill btn-outline">افزودن به سبد خرید</a>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+            <div class="col-md-12 text-center mt-4">
+                <a href="#" class="btn btn-pill btn-theme">ادامه خواندن</a>
+            </div>
+        </div>
+    </div>
+</section>

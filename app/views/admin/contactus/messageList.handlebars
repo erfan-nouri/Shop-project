@@ -1,0 +1,56 @@
+<div class="content-body">
+
+    <!-- Page Headings Start -->
+    <div class="row justify-content-between align-items-center mb-10">
+
+        <!-- Page Heading Start -->
+        <div class="col-12 col-lg-auto mb-20">
+            <div class="page-heading">
+                <h3>ارتباط با ما <span>/ مدیریت پیام ها </span></h3>
+            </div>
+        </div><!-- Page Heading End -->
+
+    </div><!-- Page Headings End -->
+        {{#hasError error}}{{/hasError}}
+        {{#hasSuccess success}}{{/hasSuccess}}
+    <div class="row">
+
+        <!--Manage Product List Start-->
+        <div class="col-12">
+            <div class="table-responsive">
+                <table class="table table-vertical-middle">
+                    <thead>
+                        <tr>
+                            <th style="width:20%">عملیات</th>
+                            <th style="width:10%">شناسه</th>
+                            <th style="width:10%">ایمیل</th>
+                            <th style="width:10%">موضوع</th>
+                            <th style="width:50%">پیام</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each messages}}
+                        <tr class="{{checkState this.status}}">
+                            <td>
+                                <div class="table-action-buttons">
+                                    <a class="success button button-box button-xs button-success"
+                                        href='/admin/messages/seen/{{this.id}}'><i class="zmdi zmdi-eye fill"></i></a>
+                                    <a class="danger button button-box button-xs button-danger"
+                                        href="/admin/messages/unseen/{{this.id}}"><i class="zmdi zmdi-eye"></i></a>
+                                </div>
+                            </td>
+                            <td>{{this.id}}</td>
+                            <td>{{this.email}}</td>
+                            <td>{{this.subject}}</td>
+                            <td>{{this.message}}</td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!--Manage Product List End-->
+
+    </div>
+
+</div>

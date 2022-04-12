@@ -1,0 +1,136 @@
+<div class="content-body">
+
+    <!-- Page Headings Start -->
+    <div class="row justify-content-between align-items-center mb-10">
+
+        <!-- Page Heading Start -->
+        <div class="col-12 col-lg-auto mb-20">
+
+            <div class="alert alert-secondary" role="alert">
+                نمونه یک <a class="alert-link" href="#">ثانوی</a> هشدار آن را چک کنید
+            </div>
+            <div class="page-heading">
+                <h3>مشخصات نویسنده</h3>
+            </div>
+        </div><!-- Page Heading End -->
+
+    </div><!-- Page Headings End -->
+
+    <div class="row mbn-50">
+
+        <!--Author Top Start-->
+        <div class="col-12 mb-50">
+            <div class="author-top">
+                <div class="inner">
+                    <div class="author-profile">
+                        <div class="image">
+                            <img src="/static/assets/images/avatar/profile.jpg" class="d-none" alt="">
+                            <h2>{{user.firstname}}</h2>
+                            <button class="edit"><i class="zmdi zmdi-cloud-upload"></i>تغییر تصویر</button>
+                        </div>
+                        <div class="info">
+                            <h5>{{user.firstname}} {{ user.lastname}}</h5>
+                            <span></span>
+                            <a href="#" class="edit"><i class="zmdi zmdi-edit"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Author Top End-->
+
+        <!--Timeline / Activities Start-->
+        <div class="col-xlg-8 col-12 mb-50">
+            <div class="box">
+
+
+                <div class="col-xlg-12 col-lg-6 col-12 mb-30">
+                    <div class="box">
+                        <div class="box-head">
+                            <h3 class="title">اطلاعات کاربر</h3>
+                        </div>
+                        <div class="box-body">
+                            <div class="form">
+                                <form action="#">
+                                    <div class="row row-10 mbn-20">
+
+                                        <div class="col-sm-6 col-12 mb-20">نام :<input type="text" name="firstname"
+                                                class="form-control" value="{{user.firstname}}"></div>
+                                        <div class="col-sm-6 col-12 mb-20">نام خانوادگی: <input type="text"
+                                                name="lastname" class="form-control" value="{{user.lastname}}"></div>
+                                        <div class="col-sm-6 col-12 mb-20">تاریخ ثبت نام: <input type="text"
+                                                class="form-control " value="{{user.created_at}}"></div>
+                                        <div class="col-sm-6 col-12 mb-20">شماره تلفن: <input type="text" name="phone"
+                                                class="form-control" value="{{user.phone}}" data-mask="(999) 999-9999">
+                                        </div>
+                                        <div class="col-12 mb-20">ایمیل: <input type="email" name="email"
+                                                class="form-control" value="{{user.email}}"></div>
+                                        <div class="col-sm-6 col-12 mb-20">رمزعبور: <input type="password"
+                                                name="password" class="form-control" value=""></div>
+                                        <div class="col-12 mt-10 mb-20">
+                                            <input type="submit" class="button button-primary button-outline"
+                                                value="ذخیره تغییرات">
+                                            <input type="submit" class="button button-danger button-outline"
+                                                value="حذف تغییرات">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!--Timeline / Activities End-->
+
+        <!--Right Sidebar Start-->
+        <div class="col-xlg-4 col-12 mb-50">
+            <div class="row mbn-30">
+
+
+                <div class="col-xlg-12 col-lg-6 col-12 mb-30">
+                    <div class="box">
+                        <div class="box-head">
+                            <h3 class="title">موجودی</h3>
+                        </div>
+                        <div class="box-body">
+                            <div class="form">
+                                <form action="#" method="post">
+                                    <div class="row row-10 mbn-20">
+                                        <div class="col-sm-6 col-12 mb-20">
+                                            <p>موجودی حساب</p><input type="text" disabled class="form-control"
+                                                value="{{user.balance}}">
+                                        </div>
+                                        <div class="col-sm-6 col-12 mb-20">
+                                            <p>میزان افزایش موجودی</p><input type="text" name="amount"
+                                                class="form-control" value="">
+                                        </div>
+                                        <div class="col-12 mt-10 mb-20">
+                                            <input type="submit" class="button button-primary button-outline"
+                                                value="ورود به درگاه پرداخت">
+
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!--Author Information End-->
+
+                <!-- To Do List Start -->
+
+
+                <!-- Daily Sale Report Start -->
+
+
+            </div>
+        </div>
+        <!--Right Sidebar End-->
+
+    </div>
+
+</div>

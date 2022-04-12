@@ -1,0 +1,264 @@
+<section class="component-section section-top bg-gray">
+{{!-- <div class="hero-img bg-overlay" data-overlay="1" style="background-image: url(/static/assets/img/price-banner.jpg);"></div> --}}
+        <div class="container">
+            <div class="row justify-content-between align-items-center mt-5 text-lg-left text-center">
+                <div class="col-md-6">
+                    <!-- heading -->
+                    <h3 class="">
+                        فروشگاه تک
+                    </h3>
+                </div>
+                <div class="col-md-6">
+                    <!--breadcrumb-->
+                    <nav aria-label="breadcrumb" class="float-lg-right">
+                        <ol class="breadcrumb bg-white btn-pill px-5 mb-0">
+                            <li class="breadcrumb-item"><a href="#" class="text-dark">بررسی</a></li>
+                            <li class="breadcrumb-item"><a href="#" class="text-dark">فروشگاه</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">فروشگاه تک</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+<section class="section-gap bg-white">
+    <div class="container">
+        <div class="row justify-content-between mb-lg-5 mb-4">
+            <div class="col-md-6">
+                <div class="item">
+                    <a href="" class="card border-0">
+                        <img class="card-img rounded" src="/static/uploads/thumbnails/{{productData.img}}" alt="card image" />
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-5">
+                {{#haveError error}}
+                {{/haveError}}
+                <h3 class="mb-3">{{productData.title}}</h3>
+                <div class="price mb-4">
+
+                    {{#haveOff productData.off_price productData.sale_price}}
+
+                    {{/haveOff}}
+
+                </div>
+                <p class="text-muted">{{productData.description}}</p>
+                <form class="form-inline my-lg-5 mb-4" action='/shopcart/?productId={{productData.id}}&productTitle={{productData.title}}&productPrice={{#buyPrice productData.off_price productData.sale_price}}{{/buyPrice}}&img={{productData.img}}' method="Post">
+                    <input type="number" name="count" max="{{productData.quantity}}" min="1" value="1" class="form-control form-qty mr-2 w-25" placeholder="1">
+                    <button type="submit" class="btn btn-primary"><i class="fa fa-shopping-cart pr-3"></i>افزودن به سبد خرید</button>
+                </form>
+                <div class="card border-0 font-size-14">
+                    <div class=""><strong class="pr-2">تعداد:</strong> {{productData.quantity}}</div>
+                    <div class=""><strong class="pr-2">دسته:</strong> <a href=""
+                            rel="tag">{{productData.categorytitle}}</a>.</div>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center ">
+            <div class="col-md-12">
+                <ul class="nav nav-line mb-md-5 mb-3" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="branding-tab" data-toggle="tab" href="#branding" role="tab"
+                            aria-controls="branding" aria-selected="true">توضیحات</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="ui-tab" data-toggle="tab" href="#ui" role="tab" aria-controls="ui"
+                            aria-selected="false">مشخصات</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="frontend-tab" data-toggle="tab" href="#frontend" role="tab"
+                            aria-controls="frontend" aria-selected="false">نظرات 2</a>
+                    </li>
+                </ul>
+                <div class="tab-content text-left">
+                    <div class="tab-pane fade show active" id="branding" role="tabpanel" aria-labelledby="branding-tab">
+                        <h4 class="mb-3">توضیحات</h4>
+                        <p class="text-muted">{{productData.description}}</p>
+                    </div>
+                    <div class="tab-pane fade" id="ui" role="tabpanel" aria-labelledby="ui-tab">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered">
+                                <tbody>
+                                    <tr>
+                                        <td>سایز</td>
+                                        <td>کوچک, متوسط, بزرگ و خیلی بزرگ</td>
+                                    </tr>
+                                    <tr>
+                                        <td>رنگ</td>
+                                        <td>قرمز, آبی, سبز و سیاه</td>
+                                    </tr>
+                                    <tr>
+                                        <td>قفسه سینه</td>
+                                        <td>38 اینچ</td>
+                                    </tr>
+                                    <tr>
+                                        <td>دور کمر</td>
+                                        <td>20 سانتی متر</td>
+                                    </tr>
+                                    <tr>
+                                        <td>طول</td>
+                                        <td>35 سانتی متر</td>
+                                    </tr>
+                                    <tr>
+                                        <td>پارچه</td>
+                                        <td>پنبه, ابریشم و مصنوعی</td>
+                                    </tr>
+                                    <tr>
+                                        <td>گارانتی</td>
+                                        <td>6 ماه</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade single-post" id="frontend" role="tabpanel" aria-labelledby="frontend-tab">
+                        <div class="comments">
+                            <ul>
+                                <li class="comment ">
+                                    <article class="comment-body">
+                                        <footer class="comment-meta">
+                                            <div class="comment-author">
+                                                <img alt="" src="/static/assets/img/team/t-1.jpg" class="">
+                                                <b class="fn">
+                                                    <a href="#" rel="external nofollow" class="url">
+                                                        کریس امز
+                                                    </a>
+                                                </b>
+                                                <span class="says">گفته:</span>
+                                            </div>
+                                            <!-- .comment-author -->
+
+                                            <div class="comment-metadata">
+                                                <a href="#">
+                                                    <time datetime="2018-09-02T12:17:07+00:00">
+                                                        1398 فروردین
+                                                    </time>
+                                                </a>
+                                            </div><!-- .comment-metadata -->
+
+                                        </footer><!-- .comment-meta -->
+
+                                        <div class="comment-content">
+                                            <p>سلام، این یک دیدگاه میباشد.<br>
+                                                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
+                                                از طراحان گرافیک است..<br>
+                                                بهترین سایت ار هر نظر <a href="#">مدرن</a>.</p>
+                                        </div><!-- .comment-content -->
+
+                                        <div class="reply">
+                                            <span class="review-rating text-muted">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fas fa-star-half-alt"></i>
+                                                <i class="far fa-star"></i>
+                                            </span>
+                                        </div>
+                                    </article><!-- .comment-body -->
+                                </li><!-- #comment-## -->
+                                <li class="comment ">
+                                    <article class="comment-body">
+                                        <footer class="comment-meta">
+                                            <div class="comment-author ">
+                                                <img alt="" src="/static/assets/img/team/t-2.jpg" class="">
+                                                <b class="fn">
+                                                    <a href="#" rel="external nofollow" class="url">مایکل</a>
+                                                </b>
+                                                <span class="says">گفته:</span>
+                                            </div><!-- .comment-author -->
+
+                                            <div class="comment-metadata">
+                                                <a href="#">
+                                                    <time datetime="2018-10-16T13:13:25+00:00">
+                                                        1398 فروردین
+                                                    </time>
+                                                </a>
+                                            </div><!-- .comment-metadata -->
+
+                                        </footer><!-- .comment-meta -->
+
+                                        <div class="comment-content">
+                                            <p>سلام، این یک دیدگاه میباشد.<br>
+                                                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
+                                                از طراحان گرافیک است.<br>
+                                                نظرات شما افتخار ماست</p>
+                                        </div><!-- .comment-content -->
+
+                                        <div class="reply">
+                                            <span class="review-rating text-muted">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                            </span>
+                                        </div>
+                                    </article><!-- .comment-body -->
+                                </li><!-- #comment-## -->
+                            </ul>
+                        </div>
+                        <a href="javascript:;" class="btn btn-theme">یک بررسی اضافه کنید</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section-gap bg-gray">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-12">
+                    <h4 class="mb-lg-5 mb-4">محصولات مرتبط</h4>
+                </div>
+                <div class="col-md-4">
+                    <div class="card border-0 mb-4 box-hover">
+                        <div class="position-relative">
+                            <div class="ft-tag ft-inside-tr">ویژه</div>
+                            <img class="card-img-top" src="/static/assets/img/shop/shop-img1.jpg" alt="card image">
+                        </div>
+                        <div class="card-body py-4 text-center">
+                            <h6 class="mb-2 font-size-16"><a href="#">نام عنوان محصول</a></h6>
+                            <div class="price mb-3">
+                                <del class="text-muted mr-2"><span class="font-size-14 h6">49.000 تومان</span></del>
+                                <span class="h6">32.000 تومان</span>
+                            </div>
+                            <a href="#" class="btn btn-sm btn-pill btn-outline">افزودن به سبد خرید</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card border-0 mb-4 box-hover">
+                        <div class="position-relative">
+                            <!--<div class="ft-tag ft-inside-tr">Sale</div>-->
+                            <img class="card-img-top" src="/static/assets/img/shop/shop-img2.jpg" alt="card image">
+                        </div>
+                        <div class="card-body py-4 text-center">
+                            <h6 class="mb-2 font-size-16"><a href="#">نام عنوان محصول</a></h6>
+                            <div class="price mb-3">
+                                <!--<del class="text-muted mr-2"><span class="font-size-14 h6">$49.00</span></del>-->
+                                <span class="h6">32.000 تومان</span>
+                            </div>
+                            <a href="#" class="btn btn-sm btn-pill btn-outline">افزودن به سبد خرید</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card border-0 mb-4 box-hover">
+                        <div class="position-relative">
+                            <!--<div class="ft-tag ft-inside-tr">Sale</div>-->
+                            <img class="card-img-top" src="/static/assets/img/shop/shop-img3.jpg" alt="card image">
+                        </div>
+                        <div class="card-body py-4 text-center">
+                            <h6 class="mb-2 font-size-16"><a href="#">نام عنوان محصول</a></h6>
+                            <div class="price mb-3">
+                                <!--<del class="text-muted mr-2"><span class="font-size-14 h6">$49.00</span></del>-->
+                                <span class="h6">32.000 تومان</span>
+                            </div>
+                            <a href="#" class="btn btn-sm btn-pill btn-outline">افزودن به سبد خرید</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>

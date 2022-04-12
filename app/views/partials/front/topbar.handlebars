@@ -1,0 +1,31 @@
+<section class="py-2 bg-gray">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7">
+                <small class="font-size-14">شماره تماس : +14322563253</small>
+            </div>
+            <div class="col-md-5 text-md-right">
+                {{#if loggedIn}}
+
+                <ul class="list-inline m-0 d-inline mr-2">
+                    <li class="list-inline-item font-size-14">{{user.firstname}} {{user.lastname}}</li>
+                    <li class="list-inline-item font-size-14 ml-2"><a href="/dashboard" class="text-dark">حساب کاربری</a></li>
+                    <li class="list-inline-item font-size-14 ml-2"><a href="/logout" class="text-dark">خروج</a></li>
+                </ul>
+                <a href="/shopcart" class="text-decoration-none text-dark ml-2"><i class="vl-cart1"></i></a>
+
+                {{else}}
+
+                <ul class="list-inline m-0 d-inline mr-2">
+                    <li class="list-inline-item font-size-14"><a href="/auth/login" class="text-dark">ورود</a></li>
+                    <li class="list-inline-item font-size-14 ml-2"><a href="/auth/register" class="text-dark">ایجاد
+                            حساب کاربری</a></li>
+                </ul>
+
+                {{/if }}
+
+
+            </div>
+        </div>
+    </div>
+</section>

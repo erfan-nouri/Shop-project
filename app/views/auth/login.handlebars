@@ -1,0 +1,40 @@
+<div class="login-register-form-wrap">
+    <div class="content">
+        <h1>ورود</h1>
+        <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. .</p>
+    </div>
+
+    <div class="login-register-form">
+
+        {{#haveError error}}
+        {{/haveError}}
+        {{#haveSuccess success}}
+        {{/haveSuccess}}
+
+        <form action="/auth/login" method="post">
+            <div class="row">
+                <div class="col-12 mb-20"><input class="form-control" name="email" type="text"
+                        placeholder="نام کاربری / ایمیل">
+                </div>
+                <div class="col-12 mb-20"><input class="form-control" name="password" type="password"
+                        placeholder="رمز عبور">
+                </div>
+
+                <div class="col-12 mb-20 g-recaptcha" data-sitekey="6Lc6J1AeAAAAAPXCAKG-6DRi_Itz1axFpfeuj_DT">
+                    
+                </div>
+
+                <div class="col-12 mb-20"><label for="remember" class="adomx-checkbox-2"><input id="remember"
+                            type="checkbox"><i class="icon"></i>مرا به خاطر داشته باش.</label></div>
+                <div class="col-12">
+                    <div class="row justify-content-between">
+                        <div class="col-auto mb-15"><a href="/auth/forget-password">فراموشی رمز عبور؟</a></div>
+                        <div class="col-auto mb-15">آیا حساب کاربری ندارید؟ <a href="/auth/register">هم اکنون ایجاد
+                                کنید.</a></div>
+                    </div>
+                </div>
+                <div class="col-12 mt-10"><button class="button button-primary button-outline">ورود</button></div>
+            </div>
+        </form>
+    </div>
+</div>

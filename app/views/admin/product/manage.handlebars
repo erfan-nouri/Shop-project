@@ -1,0 +1,74 @@
+<div class="content-body">
+
+    <!-- Page Headings Start -->
+    <div class="row justify-content-between align-items-center mb-10">
+
+        <!-- Page Heading Start -->
+        <div class="col-12 col-lg-auto mb-20">
+            <div class="page-heading">
+                <h3>تجارت الکترونیکی <span>/ مدیریت محصول</span></h3>
+            </div>
+        </div><!-- Page Heading End -->
+
+    </div><!-- Page Headings End -->
+    {{#hasError error}}{{/hasError}}
+    {{#hasSuccess success}}{{/hasSuccess}}
+    <div class="row">
+
+        <!--Manage Product List Start-->
+        <div class="col-12">
+            <div class="table-responsive">
+                <table class="table table-vertical-middle">
+                    <thead>
+                        <tr>
+                            <th>شناسه محصول</th>
+                            <th>عکس</th>
+                            <th>نام محصول</th>
+                            <th>دسته</th>
+                            <th>قیمت</th>
+                            <th>قیمت با تخفیف</th>
+                            <th>فروش</th>
+                            <th>در انبار</th>
+                            <th>تاریخ</th>
+                            <th>وضعیت</th>
+                            <th>عمل</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each products}}
+                        <tr>
+                            <td>{{this.id}}</td>
+                            <td><img src="/static/uploads/thumbnails/{{this.img}}" width="50" height="50" alt=""
+                                    class="product-image rounded-circle"></td>
+                            <td><a href="#">{{this.title}}</a></td>
+                            <td>{{this.categorytitle}}</td>
+                            <td>{{this.sale_price}} تومان</td>
+                            <td>{{this.off_price}} تومان</td>
+                            <td>{{this.saled}}</td>
+                            <td>{{this.quantity}}</td>
+                            <td>{{this.created_at}}</td>
+                            <td><span class="{{#isActive this.isActive}} {{/isActive}}">{{#isActiveText this.isActive}}
+                                    {{/isActiveText}}</span></td>
+                            <td>
+                                <div class="table-action-buttons">
+                                    <a class="view button button-box button-xs button-primary"
+                                        href="invoice-details.html"><i class="zmdi zmdi-more"></i></a>
+                                    <a class="edit button button-box button-xs button-info"
+                                        href='/admin/product/edit/?productId={{this.id}}'><i
+                                            class="zmdi zmdi-edit"></i></a>
+                                    <a class="delete button button-box button-xs button-danger"
+                                        href="/admin/product/delete/?productId={{this.id}}"><i
+                                            class="zmdi zmdi-delete"></i></a>
+                                </div>
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!--Manage Product List End-->
+
+    </div>
+
+</div>

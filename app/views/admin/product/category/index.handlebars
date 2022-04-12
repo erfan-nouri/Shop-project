@@ -1,0 +1,58 @@
+<div class="content-body">
+
+    <!-- Page Headings Start -->
+    <div class="row justify-content-between align-items-center mb-10">
+
+        <!-- Page Heading Start -->
+        <div class="col-12 col-lg-auto mb-20">
+            <div class="page-heading">
+                <h3>تجارت الکترونیکی <span>دسته بندی محصولات</span></h3>
+            </div>
+        </div><!-- Page Heading End -->
+
+    </div><!-- Page Headings End -->
+
+    <div class="row">
+
+        <!--Manage Product List Start-->
+        <div class="col-12">
+            <div class="table-responsive">
+                <table class="table table-vertical-middle">
+                    <thead>
+                        <tr>
+                            <th>شناسه دسته</th>
+                            <th>نام دسته</th>
+                            <th>توضیحات</th>
+                            <th>تاریخ ساخت</th>
+                            <th>عمل</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each categoryData}}
+                        <tr>
+                            <td>{{this.id}}</td>
+                            <td><a href="#">{{this.title}}</a></td>
+                            <td>{{this.description}}</td>
+                            <td>{{this.created_at}}</td>
+                            <td>
+                                <div class="table-action-buttons">
+                                    <a class="view button button-box button-xs button-primary"
+                                        href="invoice-details.html"><i class="zmdi zmdi-more"></i></a>
+                                    <a class="edit button button-box button-xs button-info"
+                                        href='/admin/product/category/edit/?categoryId={{this.id}}'><i
+                                            class="zmdi zmdi-edit"></i></a>
+                                    <a class="delete button button-box button-xs button-danger" href=""><i
+                                            class="zmdi zmdi-delete"></i></a>
+                                </div>
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!--Manage Product List End-->
+
+    </div>
+
+</div>
