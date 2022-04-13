@@ -4,6 +4,7 @@ const app = express();
 require('./bootstrap/index.js')(app)
 require('./middlewares/index.js')(app)
 require('./routes/index.js')(app)
+require('./middlewares/errorHandler')(app)
 require('./middlewares/404.js')(app)
 
 
